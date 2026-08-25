@@ -61,7 +61,7 @@ td{padding:5px 10px;vertical-align:middle;white-space:nowrap}
   <div class="tstat"><b>0</b> toy levels</div>
   <div class="tstat"><b>0</b> tip menu</div>
   <div class="tstat">threshold <b>0s/tk</b></div>
-  <span style="margin-left:auto;font-size:0.65rem;color:#c8b89a33">2026-08-25 15:20:20 &nbsp; <span class="blink">●</span> LIVE</span>
+  <span style="margin-left:auto;font-size:0.65rem;color:#c8b89a33">2026-08-25 15:20:47 &nbsp; <span class="blink">●</span> LIVE</span>
 </div>
 <div class="filterbar">
   <div class="fb-group"><span style="font-size:0.6rem;color:#c8b89a33">SEARCH</span><input class="fsearch" type="text" placeholder="username..." oninput="applyFilters()"></div>
@@ -223,7 +223,7 @@ td{padding:5px 10px;vertical-align:middle;white-space:nowrap}
     <div class="no-res" id="nodata-lovense" style="display:none">// NO SIGNALS MATCH FILTERS</div>
   </div></div>
 </div>
-<div class="statusbar"><span>FM//SCANNER v2.1</span><span>SCAN: 2026-08-25 15:20:20</span><span>THRESHOLD: 0s/TK</span><span id="sb-count"></span></div>
+<div class="statusbar"><span>FM//SCANNER v2.1</span><span>SCAN: 2026-08-25 15:20:47</span><span>THRESHOLD: 0s/TK</span><span id="sb-count"></span></div>
 <script>
 const filters={signal:'all',tktier:'all',viewers:'0',country:'all',ethnicity:'all',age:'all',body:'all',hair:'all',subculture:'all',specifics:'all',activities:'all',appearance:'all',gender:'all',mobile:'all',toytype:'all',secmin:'0',secexact:'0',tkexact:'0',intensity:'all'};
 let currentTab='tip',sortDir=-1;
@@ -281,7 +281,7 @@ rows.sort((a,b)=>{if(sort==='viewers')return(parseInt(b.dataset.viewers)-parseIn
 rows.forEach(r=>tbody.appendChild(r));let vis=0;
 rows.forEach(r=>{const d=r.dataset;const show=(filters.signal==='all'||d.signal===filters.signal)&&(filters.tktier==='all'||d.tktier===filters.tktier)&&(parseInt(d.viewers)>=parseInt(filters.viewers))&&(filters.country==='all'||d.country===filters.country)&&(filters.ethnicity==='all'||d.ethnicity===filters.ethnicity)&&(filters.age==='all'||d.age===filters.age)&&(filters.body==='all'||d.body===filters.body)&&(filters.hair==='all'||d.hair===filters.hair)&&(filters.subculture==='all'||d.subculture===filters.subculture)&&(filters.specifics==='all'||d.specifics.includes(filters.specifics))&&(filters.activities==='all'||d.activities.includes(filters.activities))&&(filters.appearance==='all'||d.appearance.includes(filters.appearance))&&(filters.gender==='all'||d.gender===filters.gender)&&(filters.intensity==='all'||d.intensity===filters.intensity)&&(parseFloat(d.rate)>=parseFloat(filters.secmin))&&(filters.secexact==='0'||Math.floor(parseFloat(d.rate))===parseInt(filters.secexact))&&(filters.tkexact==='0'||parseInt(d.mintk)===parseInt(filters.tkexact))&&(!q||r.innerText.toLowerCase().includes(q));r.style.display=show?'':'none';if(show)vis++;});
 const nodata=document.getElementById('nodata-'+currentTab);if(nodata)nodata.style.display=vis===0?'block':'none';
-document.getElementById('rcount').textContent=vis+' shown';const sb=document.getElementById('sb-count');if(sb)sb.textContent=vis+' / 0 signals (FM:0 LOV:0)';}
+document.getElementById('rcount').textContent=vis+' shown';const sb=document.getElementById('sb-count');if(sb)sb.textContent=vis+' signals';}
 function sortBy(col,th){sortDir*=-1;document.querySelectorAll('th').forEach(t=>t.className='');th.className=sortDir===1?'sort-asc':'sort-desc';const map={user:'user',tk:'mintk',dur:'rate',rate:'rate',view:'viewers'};document.getElementById('sortdd').value=map[col]||'rate';applyFilters();}
 document.querySelectorAll('.r').forEach(r=>{r.addEventListener('click',e=>{if(e.target.tagName!=='A'){const a=r.querySelector('a');if(a)window.open(a.href,'_blank');}})});
 populateFMTab();
